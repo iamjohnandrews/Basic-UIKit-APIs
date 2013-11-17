@@ -9,6 +9,9 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+{
+    NSArray *backgroundColors;
+}
 
 @end
 
@@ -17,6 +20,8 @@
 
 - (void)viewDidLoad
 {
+    backgroundColors = @[@"redcolor", @"bluecolor", @"greencolor", @"yellowcolor", @"cyancolor", @"orangecolor"];
+    
     [super viewDidLoad];
     //set up buttons
     changeColorButtonOutlet.layer.cornerRadius = 8.0f;
@@ -34,9 +39,18 @@
 }
 
 - (IBAction)changeColorButtonPressed:(id)sender {
+    //not working, return
+    if ((changeColorButtonOutlet.layer.backgroundColor = [[UIColor whiteColor]CGColor])) {
+        changeColorButtonOutlet.layer.backgroundColor = [[UIColor redColor]CGColor];
+        changeColorButtonOutlet.layer.borderColor = [[UIColor grayColor]CGColor];
+    } else  {
+        changeColorButtonOutlet.layer.backgroundColor = [[UIColor lightGrayColor]CGColor];
+        changeColorButtonOutlet.layer.borderColor = [[UIColor redColor]CGColor];
+    }
 }
 
 - (IBAction)moveMeButtonPressed:(id)sender {
+    
 }
 
 - (IBAction)toggleButtonPressed:(id)sender {
